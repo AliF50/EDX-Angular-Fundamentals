@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="helloWorldApp">
+
+<head>
+    <title>Angular Fundamentals</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body ng-controller="firstController">
+    <div class="container">
+        <h1>AngularFundamentals</h1>
+        <h2>{{'Hello from AngularJS'}}</h2>
+        <pre>{{appName}}</pre>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+    var helloWorldApp = angular.module('helloWorldApp', []);
+    helloWorldApp.constant('myConfig', {
+        applicationName: 'My Angular JS App'
+    });
+    helloWorldApp.controller('firstController', ['$scope', 'myConfig', function($scope, myConfig) {
+        $scope.appName = myConfig.applicationName;
+    }]);
+    </script>
+</body>
+
+</html>
